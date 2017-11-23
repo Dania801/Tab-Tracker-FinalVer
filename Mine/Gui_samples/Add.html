@@ -1,0 +1,108 @@
+<html lang="eng">
+
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="icon" href="../../favicon.ico">
+      <title>Welcome to Tab Tracker</title>
+
+    <!--Libraries and links -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/47f1113041.js"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=IM+Fell+Great+Primer" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Sorts+Mill+Goudy" rel="stylesheet">
+
+    <!--CSS file -->
+    <link rel = "stylesheet" type = "text/css" href = "style.css" />
+  </head>
+
+  <body class="root">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="row">
+        <div class="navbar-header col-xs-10">
+          <ul class="nav navbar-nav">
+            <li class="disabled"><a href="#"></a></li>
+            <li class="disabled"><a href="#"></a></li>
+            <li class="active"><a href="#main">HOME</a></li>
+            <li class="active"><a href="#about">ABOUT</a></li>
+          </ul>
+        </div>
+        <div class="col-xs-2">
+          <a class="navbar-brand" href="#login">Log out</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Contact -->
+    <div class="container container-fluid w3-opacity w3-hover-sepia" id="guitar-cover-mini">
+      <br /><br /><br /><br />
+      <div id="add-header-background">
+        <h4 id="desc">ADD A NEW SONG</h4>
+      </div>
+    </div>
+    <hr id="add-line" class="w3-round">
+
+    <div class="row" >
+      <div class="col-xs-5" >
+
+        <div class=" w3-margin" id="add-metadata-container">
+          <div class="w3-container w3-padding w3-black" id="add-metadata">
+            <h3 id="add-metadata-title">Song Metadata</h3>
+          </div>
+          <form>
+            <div id="form-container">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Title" required>
+              </div>
+              <br />
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Artist" required>
+              </div>
+              <br />
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Genre" required>
+              </div>
+              <br />
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Album" required>
+              </div>
+              <br />
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Youtube ID" required>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-xs-7">
+        <div class="w3-margin" style="height:470px;background-color:#EEEEEE;border-radius: 60px 60px 30px 30px;">
+          <div class="w3-container w3-padding w3-black" style="border-radius: 30px 30px 0px 0px;">
+            <h3 style="font-family: 'Sorts Mill Goudy', serif;">Song Structure</h3>
+          </div>
+          <form>
+            <div style="margin:20px">
+              <div class="form-group">
+                <textarea class="form-control" rows="5" placeholder="Song Lyrics" required></textarea>
+              </div>
+              <br />
+              <div class="form-group">
+                <textarea class="form-control" rows="10" placeholder="Song Tabs" required></textarea>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <br />
+    <div >
+      <button class="w3-button w3-round w3-black w3-large" style="border-radius:50px 180px;margin-left:950;padding-top:30px;padding-bottom:30px;padding-right:40px;padding-left:40px">ADD</button>
+    </div>
+    <br />
+    </body>
+</html>

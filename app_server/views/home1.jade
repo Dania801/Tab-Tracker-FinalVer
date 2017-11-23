@@ -1,0 +1,80 @@
+html(lang="eng")
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible")
+    meta(name="viewport" , content="width=device-width, initial-scale=1")
+    link(rel="icon" , href="../../favicon.ico")
+    title #{title}
+    
+    // Libraries and links
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')   
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js')   
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')     
+    script(src='https://use.fontawesome.com/47f1113041.js')
+    link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css')     
+    link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')     
+    link(href='https://fonts.googleapis.com/css?family=IM+Fell+Great+Primer', rel='stylesheet')
+    link(href='https://fonts.googleapis.com/css?family=Sorts+Mill+Goudy', rel='stylesheet')
+    
+    // CSS file
+    link(rel='stylesheet', type='text/css', href='stylesheets/style.css')
+    
+  body.root
+  //The Navigator
+  nav.navbar.navbar-inverse.navbar-fixed-top
+    .row
+      .navbar-header.col-xs-10
+        ul.nav.navbar-nav
+          li.disabled
+            a(href='#')
+          li.disabled
+            a(href='#')
+          li.active
+            a(href='') #{nav.home}
+          li.active
+            a(href='about') #{nav.about}
+      .col-xs-2
+        .row
+            a.navbar-brand(href='/signin') #{nav.login}
+            a.navbar-brand(href='/reg') Register
+  
+  //Page cover          
+  #guitar-cover.container.container-fluid.w3-opacity.w3-hover-sepia
+    div(style='background-color: #FFCC80; width:28%;margin-top:170px;')
+      h2#title #{cover.title}
+    div(style='background-color: #FFCC80; width:35%')
+      h4#desc #{cover.desc} 
+    
+  //Song stand  
+  #song-stand.container(style='background-color:black;width:100%;')
+    h2#featured-songs #{featured.title}
+    .container(style="margin-bottom:80px;margin-top:220px;margin-left:10%")
+      //loop through features songs list
+      each song in featured.songs
+          #song.w3-animate-top(style="margin-bottom: 50px;margin-right: 20px;")
+            img.img-responsive.song-image-border(src='#{song.cover}', alt='song cover')
+            #song-desc
+              h3#song-info
+                span(style='font-size: 25px;') #{song.title}
+              h3#song-info
+                span(style='font-size: 18px;') #{song.artist}
+            br
+            br
+            a.w3-btn.w3-gray.w3-wide.w3-hover-red.w3-round-large.btn.btn-default.pull-right(href='/song/#{song._id}',style="margin-right: 31%;padding-right: 25px;padding-left: 25px;padding-bottom: 12px;padding-top: 12px;") Tabs
+
+  br
+  
+  //Footer
+  p#footer Created By 
+     a(href='https://github.com/Dania801') Dania 
+     © 2017 with  
+     i.fa.fa-heart &nbsp; and &nbsp;
+     i.fa.fa-music
+
+  
+    
+
+    
+    
+    

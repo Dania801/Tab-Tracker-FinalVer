@@ -1,0 +1,55 @@
+html(lang='eng')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='icon', href='../../favicon.ico')
+    title Register
+    // Libraries and links
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    script(src='https://use.fontawesome.com/47f1113041.js')
+    link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css')
+    link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+    link(href='https://fonts.googleapis.com/css?family=IM+Fell+Great+Primer', rel='stylesheet')
+    link(href='https://fonts.googleapis.com/css?family=Sorts+Mill+Goudy', rel='stylesheet')
+    // CSS file
+    link(rel='stylesheet', type='text/css', href='../stylesheets/style.css')
+  body.root
+    nav.navbar.navbar-inverse.navbar-fixed-top
+      .row
+        .navbar-header.col-xs-10
+          ul.nav.navbar-nav
+            li.disabled
+              a(href='#')
+            li.disabled
+              a(href='#')
+            li.active
+              a(href='/') #{nav.home}
+            li.active
+              a(href='/about') #{nav.about}
+    #signup_container.container.w3-padding-16
+      form(action="/signin/reg", method="post", role="form")#signup_form.form-signin
+        h2#signup_title.form-signin-heading Please Register
+        br
+        label.sr-only(for='inputEmail') Username
+        input#inputEmail.form-control(placeholder='Username', required='', autofocus='', name='username')
+        br
+        label.sr-only(for='inputEmail') Email address
+        input#inputEmail.form-control(type='email', placeholder='Email address', required='', autofocus='', name='email')
+        br
+        label.sr-only(for='inputPassword') Password
+        input#inputPassword.form-control( placeholder='Password', required='', name='password')
+        br
+        label.sr-only(for='inputPassword') Confirm password
+        input#inputPassword.form-control(type='password', placeholder='Confirm Password', required='')
+        br
+        br
+        button#signup_reg_btn.w3-btn.w3-large.w3-white.w3-round(type='submit') Register!
+        br
+        #signup_label
+          label Already have an account? 
+          a(href='/login')
+            label   Log in

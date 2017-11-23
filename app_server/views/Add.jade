@@ -1,0 +1,88 @@
+html(lang='eng')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='icon', href='../../favicon.ico')
+    title #{title}
+    // Libraries and links
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    script(src='https://use.fontawesome.com/47f1113041.js')
+    link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css')
+    link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+    link(href='https://fonts.googleapis.com/css?family=IM+Fell+Great+Primer', rel='stylesheet')
+    link(href='https://fonts.googleapis.com/css?family=Sorts+Mill+Goudy', rel='stylesheet')
+    // CSS file
+    link(rel='stylesheet', type='text/css', href='../stylesheets/style.css')
+    script(type="text/javascript", src="soundCloud.js")
+    
+  body.root
+    nav.navbar.navbar-inverse.navbar-fixed-top
+      .row
+        .navbar-header.col-xs-10
+          ul.nav.navbar-nav
+            li.disabled
+              a(href='#')
+            li.disabled
+              a(href='#')
+            li.active
+              a(href='/home') #{nav.home}
+            li.active
+              a(href='/home/about') #{nav.about}
+        .col-xs-2
+          a.navbar-brand(href='/') #{nav.logout}
+
+    #guitar-cover-mini.container.container-fluid.w3-opacity.w3-hover-sepia
+      br
+      br
+      br
+      br
+      #add-header-background
+        h4#desc ADD A NEW SONG
+    hr#add-line.w3-round
+    form(action="#{url}", method="post", role="form")
+      .row
+        .col-xs-5
+          #add-metadata-container.w3-margin
+            #add-metadata.w3-container.w3-padding.w3-black
+              h3#add-metadata-title Song Metadata
+            #form-container
+              .form-group
+                input.form-control(type='text', placeholder='Title', required='', name='title')
+              br
+              .form-group
+                input.form-control(type='text', placeholder='Artist', required='', name='artist')
+              br
+              .form-group
+                input.form-control(type='text', placeholder='Genre', name='genre')
+              br
+              .form-group
+                input.form-control(type='text', placeholder='Album', name='album')
+                br
+                .form-group
+                  input.form-control(type='text', placeholder='Year', name='year')
+              br
+              .form-group
+                input.form-control(type='text', placeholder='Youtube ID', name='youtubeID')
+              br
+              .form-group
+                .input-group
+                  span.input-group-btn
+                    span.btn.btn-primary(onclick="$(this).parent().find('input[type=file]').click();") Song Cover
+                    input(placeholder= 'Upload song cover',name='cover', onchange="$(this).parent().parent().find('.form-control').html($(this).val().split(/[\\|/]/).pop());", style='display: none;', type='file')
+                  span.form-control
+        .col-xs-7
+          .w3-margin(style='height:470px;background-color:#EEEEEE;border-radius: 60px 60px 30px 30px;')
+            .w3-container.w3-padding.w3-black(style='border-radius: 30px 30px 0px 0px;')
+              h3(style="font-family: 'Sorts Mill Goudy', serif;") Song Structure
+            div(style='margin:20px')
+              .form-group
+                textarea.form-control(rows='5', placeholder='Song Lyrics', required='', name='lyrics')
+              br
+              .form-group
+                textarea.form-control(rows='10', placeholder='Song Tabs', required='', name='tab') 
+         button.w3-button.w3-round.w3-black.w3-large(type='submit' style='border-radius:50px 180px;margin-left:950;padding-top:30px;padding-bottom:30px;padding-right:40px;padding-left:40px') ADD
+      br

@@ -1,0 +1,115 @@
+html(lang='eng')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='icon', href='../../favicon.ico')
+    title Tabs
+    // Libraries and links
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    script(src='https://use.fontawesome.com/47f1113041.js')
+    link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css')
+    link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+    link(href='https://fonts.googleapis.com/css?family=IM+Fell+Great+Primer', rel='stylesheet')
+    link(href='https://fonts.googleapis.com/css?family=Sorts+Mill+Goudy', rel='stylesheet')
+    link(href='https://fonts.googleapis.com/css?family=Satisfy', rel='stylesheet')
+    // CSS file
+    link(rel='stylesheet', type='text/css', href='../../../stylesheets/style.css')
+  body.root
+    nav.navbar.navbar-inverse.navbar-fixed-top
+      .row
+        .navbar-header.col-xs-10
+          ul.nav.navbar-nav
+            li.disabled
+              a(href='#')
+            li.disabled
+              a(href='#')
+            li.active
+              a(href='/home/#{userid}') #{nav.home}
+            li.active
+              a(href='/user/#{userid}/about') #{nav.about}
+        .col-xs-2
+          a.navbar-brand(href='/') #{nav.logout}
+    form(action="#{url}", method="post", role="form")           
+      #tab-header-image.container.w3-opacity
+      #tab-header-black-layer.container
+      #tab-album-cover-container.container
+        .row
+          #tab-image-container.col-xs-3
+            br
+            img#tab-album-cover.img-responsive.song-image-borderless.w3-margin-bottom.w3-round(src='../../#{songInfo.cover}', alt='song cover')
+          #tab-song-info.col-xs-9
+            br
+            .row
+              .col-xs-8
+                h5#tab-song-title #{songInfo.title}
+                h5#tab-song-artist #{songInfo.artist}
+                h7#tab-song-album
+                  | Album 
+                  span(style='color:white') #{songInfo.album}
+                br
+                h7#tab-song-album
+                  | Year 
+                  span(style='color:white') #{songInfo.year}
+                br
+                h7#tab-song-album
+                  | Genre 
+                  span(style='color:white') #{songInfo.genre}
+              .col-xs-1
+                .row
+                  .col-xs-2
+                    button.w3-btn.w3-round.w3-red.w3-margin-right.btn.btn-default.pull-righ(type="submit",value="bookmark", name="something")
+                      i.fa.fa-bookmark-o
+                  .col-xs-2
+                    a.w3-btn.w3-round.w3-red.w3-margin-left.btn.btn-default.pull-righ(href="/home/#{userid}/song/#{songInfo._id}/edit")
+                      i.fa.fa-sliders
+                      input(name='songid' value='#{songInfo._id}' type='hidden')
+                      input(name='title' value='#{songInfo.title}' type='hidden')
+                      input(name='artist' value='#{songInfo.artist}' type='hidden')
+                      input(name='album' value='#{songInfo.album}' type='hidden')
+                      input(name='genre' value='#{songInfo.genre}' type='hidden')
+                      input(name='year' value='#{songInfo.year}' type='hidden')
+                      input(name='youtubeID' value='#{songInfo.youtubeID}' type='hidden')
+                      input(name='cover' value='#{songInfo.cover}' type='hidden')
+                      input(name='lyrics' value='#{songInfo.lyrics}' type='hidden')
+                      input(name='tab' value='#{songInfo.tab}' type='hidden')
+                      input(name='userid' value='#{userid}' type='hidden')
+      .container(style='width:100%;height:relative;position:absolute;margin-top:300px;')
+        .row
+          #tab-outer-container.col-xs-6
+            #tab-inner-container.w3-container.w3-card-2.w3-black.w3-margin-bottom
+              h2#tab-title.w3-text-white.w3-padding-16
+                i.fa.fa-music.fa-fw.w3-margin-right.w3-xxlarge.w3-text-red
+                | My heart will go on Tabs
+              br
+              h5#tab-tabs.w3-opacity(name='tab') !{(songInfo.tab).replace(/\n/g, '<br/>')}
+                        
+          #youtube-outer-container.col-xs-4
+            #lyrics-container.w3-container.w3-card-2.w3-margin-bottom
+              h2#lyrics-title.w3-text-white
+                i.fa.fa-heart.fa-fw.w3-margin-right.w3-xxlarge.w3-text-red
+                | Song Lyrics
+              br
+              h5#lyrics.w3-opacity(name='lyrics') !{(songInfo.lyrics).replace(/\n/g, '<br/>')}
+            #youtube-inner-container.w3-container.w3-card-2.w3-margin-bottom
+              h2#tab-title.w3-text-white.w3-padding-16
+                i.fa.fa-youtube.fa-fw.w3-margin-right.w3-xxlarge.w3-text-red
+                | Youtube Video
+              br
+              br
+              br
+              br
+              br
+              br
+              br
+              br
+              br
+              br
+              br
+              br
+              br
+              br
+              br

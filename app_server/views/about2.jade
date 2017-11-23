@@ -1,0 +1,61 @@
+html(lang='eng')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='icon', href='../../favicon.ico')
+    title #{title}
+    // Libraries and links
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    script(src='https://use.fontawesome.com/47f1113041.js')
+    link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css')
+    link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+    link(href='https://fonts.googleapis.com/css?family=IM+Fell+Great+Primer', rel='stylesheet')
+    link(href='https://fonts.googleapis.com/css?family=Sorts+Mill+Goudy', rel='stylesheet')
+    // CSS file
+    link(rel='stylesheet', type='text/css', href='../../stylesheets/style.css')
+  body.root
+    nav.navbar.navbar-inverse.navbar-fixed-top
+      .row
+        .navbar-header.col-xs-10
+          ul.nav.navbar-nav
+            li.disabled
+              a(href='#')
+            li.disabled
+              a(href='#')
+            li.active
+              a(href='/home/#{userid}') #{nav.home}
+            li.active
+              a(href='/user/#{userid}/about') #{nav.about}
+    #about-cover.container.w3-opacity
+    #about_header_cover.container
+      #about_header_title
+        h2#title_about #{cover.title}
+      #about_header_desc
+        h4#desc_about #{cover.desc}
+      a#about_btn.w3-btn.w3-round-xxlarge.btn.btn-default.pull-righ(href="/home/#{userid}",style="margin-right:32%") Continue browsing
+    #about_container.container
+      .row
+        .container.col-xs-6
+          i.fa.fa-list.fa-fw.w3-margin-right.fa-5x.w3-text-white(style='margin-left:40%;margin-top:15%;')
+          h2#about_title1 #{feature1.title}
+          br
+          p#about_desc1 #{feature1.desc}
+        .container.col-xs-6
+          i.fa.fa-headphones.fa-fw.w3-margin-right.fa-5x.w3-text-white(style='margin-left:40%;margin-top:15%;')
+          h2#about_title3 #{feature2.title}
+          br
+          p#about_desc1 #{feature2.desc}
+      div
+        i.fa.fa-plus-square-o.fa-fw.w3-margin-right.fa-5x.w3-text-white(style='margin-left:48%;margin-top:15%;')
+        h2#about_title2 #{feature3.title}
+        br
+        p#about_desc2 #{feature3.desc}
+      br
+      br
+      br
+      br
+      br

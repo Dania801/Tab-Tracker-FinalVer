@@ -1,0 +1,393 @@
+TAB TRACKER
+= = = = = = 
+
+-> unloged in users 
+- view all songs
+- search through songs
+- view everthing about a song 
+- view about page 
+- sign up
+- log in
+
+-> logged in users
+- view all songs 
+- search through songs
+- edit a song
+- add new song
+- view everthing about a song
+- view about page
+- display recently viewed 
+- bookmark a song
+- display bookmarked songs
+- sign out
+
+-> song info
+- title
+- artist
+- genere
+- album
+- year
+- image 
+- youtube link
+- lyrics
+- tab
+
+-> Paths
+/ -> home page for unlogged in users
+/home -> home page for logged in users 
+/home/add -> add new song page
+/song -> song tab for unlogged in users
+/song/detail -> song tab for logged in users
+/song/detail/edit -> edit tabs page
+/signin -> sign in page 
+/signin/reg -> register page  
+/about -> about for unlogged in users
+/home/about -> about for logged in users
+
+-> URL Requests:
+read all songs -> api/songs
+read specific song -> api/songs/123
+read a user -> api/user/123
+read recently viewed -> api/user/123/recently
+read bookmarked songs -> api/user/123/bookmark
+
+write new user -> api/user
+write new song -> api/song
+write recetly viewed -> api/user/123/recently
+write bookmarked song -> api/user/123/bookmark
+
+update a song -> api/song/123
+update a user -> api/user/123
+update recently viewed -> api/user/123/recently/123
+update bookmarked songs -> api/user/123/bookmark/123
+
+delete a user -> api/user/123
+delete a song -> api/song/123
+delete recetly viewed song -> api/user/123/recently/123
+delete bookmarked song -> api/user/123/bookmark/123
+
+- - - - - - - - 
+
+X read all songs -> api/songs
+X read specific song -> api/songs/123
+X read all bookmarks -> api/user/123/bookmarks
+X read all recently viewed -> api/user/123/recently
+X read specific user -> api/user/123
+
+X create new user -> api/user
+X create new song -> api/user/123/song
+X create new bookmark -> api/user/123/bookmark
+X create new recently viewed -> api/user/123/recently
+
+X update a song -> api/songs/123
+X update a user -> api/user/123
+
+X delete a song -> api/songs/123
+X delete a user -> api/user/123
+X delete bookmark -> api/user/123/bookmark/123
+X delete recently viewed -> api/user/123/recently/123
+
+Monogodb Queries
+= = = = = = = = =
+-> All Users
+db.users.find(); 
+
+-> All Added Songs
+db.users.find({},{addedSongs: 1})
+db.users.find({},{addedSongs:1 , _id: 0})
+
+-> All Songs Of A Specific User
+db.users.find({"_id" : ObjectId("59dc6abf6444aa287f92bf7d")},{addedSongs: 1});
+
+-> Bookmarks Of A Specific User
+db.users.find({"_id" : ObjectId("59dc6abf6444aa287f92bf7d")},{bookmarkedSongs: 1});
+
+-> Recently Viewed Songs Of A Specific User
+db.users.find({"_id" : ObjectId("59dc6abf6444aa287f92bf7d")},{recentlyViewed: 1});
+
+-> Read A Specific Song
+Can only return the document of the user with the song with the array of all the added songs
+db.users.find({"addedSongs._id" : ObjectId("59dc6abf6444aa287f92bf7b")},{addedSongs: 1});
+
+-> Read A Specific User
+db.users.find({"user._id" : ObjectId("59dc6abf6444aa287f92bf7a")})
+
+MongoDB Insertion
+= = = = = = = = =
+-> Add A New User
+db.users.insert({
+	user:{ 
+		username: "Oways",
+		email: "ibraways@gmail.com",
+		password: "321"
+	},
+	addedSongs: [],
+	recentlyViewed: [],
+	bookmarkedSongs: []
+})
+
+-> Add A New Song To The AddedSongs
+db.users.update(
+  { "_id" : ObjectId("59dc7e080dd3efc163b2889d")  },
+  { "$addToSet" : { "addedSongs" :  {
+  	_id : new ObjectId(),
+	title : "Yesterday",
+	artist : "The Beatles",
+	album : "Something",
+	year : "1967",
+	genre : "Rock",
+	lyrics : "xxx",
+	tab : "--1-2--0",
+	cover : "../images/beatles.jpg"
+  
+  }
+  }  }
+);
+
+-> Add A New Bookmark
+  { "_id" : ObjectId("59dc7e080dd3efc163b2889d")  },
+  { "$addToSet" : { "bookmarkedSongs" :  {
+  	_id : new ObjectId(),
+	title : "Yesterday",
+	artist : "The Beatles",
+	album : "Something",
+	year : "1967",
+	genre : "Rock",
+	lyrics : "xxx",
+	tab : "--1-2--0",
+	cover : "../images/beatles.jpg"
+  
+  }
+  }  }
+);
+
+-> Add New Recently Viewed Song
+  { "_id" : ObjectId("59dc7e080dd3efc163b2889d")  },
+  { "$addToSet" : { "recentlyViewed Song" :  {
+  	_id : new ObjectId(),
+	title : "Yesterday",
+	artist : "The Beatles",
+	album : "Something",
+	year : "1967",
+	genre : "Rock",
+	lyrics : "xxx",
+	tab : "--1-2--0",
+	cover : "../images/beatles.jpg"
+  
+  }
+  }  }
+);
+
+Updating Data In MongoDB
+= = = = = = = = = = = = =
+-> Updating User Info
+db.users.update(
+	{"_id": ObjectId("59dc7e080dd3efc163b2889d")},
+	{
+		"$set": {"user.username": "Dani"}
+	}
+)
+
+-> Updating An Added Song
+db.users.update(
+   { _id: ObjectId("59dc7e080dd3efc163b2889d"), "addedSongs._id": ObjectId("59dc83510dd3efc163b2889e") },
+   { $set: { "addedSongs.$.title" : "Yesterday" } }
+)
+
+Deleting Data From MongoDB
+= = = = = = = = = = = = = =
+-> Delete A User
+db.users.remove(
+	{_id: ObjectId("59dc7e080dd3efc163b2889d") }
+)
+
+-> Delete An Added Song
+db.users.update(
+  { },
+  { $pull: { addedSongs : { _id : ObjectId("59dc6abf6444aa287f92bf7a") } } },
+  { multi: true }
+)
+
+-> Delete A Bookmarked Song
+db.users.update(
+  { },
+  { $pull: { bookmarkedSong : { _id : ObjectId("59dc6abf6444aa287f92bf7a") } } },
+  { multi: true }
+)
+
+-> Delete A Recently Viewed Song
+db.users.update(
+  { },
+  { $pull: { recentlyViewed : { _id : ObjectId("59dc6abf6444aa287f92bf7a") } } },
+  { multi: true }
+)
+
+
+db.users.insert(
+[
+	{
+			user: {
+				username: "Bilal",
+				email: "bilal_refaie@gmail.com",
+				password: "123"
+			},
+			addedSongs: [
+			{
+				_id : new ObjectId(),
+				title : "Yesterday",
+				artist : "The Beatles",
+				album : "Something",
+				year : "1967",
+				genre : "Rock",
+				lyrics : "xxx",
+				tab : "--1-2--0",
+				cover : "../images/beatles.jpg"
+			}
+			],
+			bookmarkedSongs: [],
+			recentlyViewed: [{
+				_id : new ObjectId(),
+				title : "Yesterday",
+				artist : "The Beatles",
+				album : "Something",
+				year : "1967",
+				genre : "Rock",
+				lyrics : "xxx",
+				tab : "--1-2--0",
+				cover : "../images/beatles.jpg"
+			}]
+	},{
+			user: {
+				username: "Dania",
+				email: "ssansnnom07@gmail.com",
+				password: "123"
+			},
+			addedSongs: [
+			{
+				_id : new ObjectId(),
+				title: "Classic Car",
+				artist: "Conor Obrest",
+				album: "Something",
+				year: "2007",
+				genre: "Rock",
+				lyrics: "xxx",
+				tab: "--1-2--0",
+				cover: "../images/bright.jpg"
+			},{
+				_id : new ObjectId(),
+				title: "My heart will go on",
+				artist: "Celine Dion",
+				album: "Let's talk about love",
+				year: "1997",
+				genre: "Pop",
+				lyrics: "xxx",
+				tab: "--1-2--0",
+				cover: "../images/celine.jpg"
+			}],
+			bookmarkedSongs: [],
+			recentlyViewed: [{
+				title: "My heart will go on",
+				artist: "Celine Dion",
+				album: "Let's talk about love",
+				year: "1997",
+				genre: "Pop",
+				lyrics: "xxx",
+				tab: "--1-2--0",
+				cover: "../images/celine.jpg"
+			}]
+	},{
+			user: {
+				username: "Anas",
+				email: "anas_refaie@gmail.com",
+				password: "123asa"
+			},
+			addedSongs: [
+			{
+				_id : new ObjectId(),
+				title: "Getting into you ",
+				artist: "Reliant K",
+				album: "Something",
+				year: "2010",
+				genre: "Rock",
+				lyrics: "xxx",
+				tab: "--1-2--0",
+				cover: "../images/reliant.jpg"
+			}],
+			bookmarkedSongs: [
+			{
+				title: "Getting into you ",
+				artist: "Reliant K",
+				album: "Something",
+				year: "2010",
+				genre: "Rock",
+				lyrics: "xxx",
+				tab: "--1-2--0",
+				cover: "../images/reliant.jpg"
+			}],
+			recentlyViewed: [{
+				title: "Classic Car",
+				artist: "Conor Obrest",
+				album: "Something",
+				year: "2007",
+				genre: "Rock",
+				lyrics: "xxx",
+				tab: "--1-2--0",
+				cover: "../images/bright.jpg"
+			}]
+	}
+]
+)
+
+db.users.save({
+	allSongs : [
+	{
+				_id : new ObjectId(),
+				title : "Yesterday",
+				artist : "The Beatles",
+				album : "Something",
+				year : "1967",
+				genre : "Rock",
+				lyrics : "xxx",
+				tab : "--1-2--0",
+				cover : "../images/beatles.jpg"
+	},{
+				_id : new ObjectId(),
+				title: "Classic Car",
+				artist: "Conor Obrest",
+				album: "Something",
+				year: "2007",
+				genre: "Rock",
+				lyrics: "xxx",
+				tab: "--1-2--0",
+				cover: "../images/bright.jpg"	
+	},{
+				_id : new ObjectId(),
+				title: "My heart will go on",
+				artist: "Celine Dion",
+				album: "Let's talk about love",
+				year: "1997",
+				genre: "Pop",
+				lyrics: "xxx",
+				tab: "--1-2--0",
+				cover: "../images/celine.jpg"
+	}],
+	allUsers : [
+	{
+		_id : new ObjectId(),
+		username: "Anas",
+		email: "anas_refaie@gmail.com",
+		hash: "7fec12c60b914594c6be08bdb472df445633b7c89d4893fe2b80d2975666215247aa6a4afc00ed6bcdf58516ad0f7344011d6b7a60742411c330887a3f00f431",
+		salt: "771fb42c5a38bd8add269ef97a6ce95b",
+		recentlyViewed :[],
+		bookmarkedSongs :[]
+	}]
+});
+ 
+
+db.players.save({
+	ID : 0, 
+	name : "Vettel",
+	iteration  : 0,
+	score : 0 
+})
+

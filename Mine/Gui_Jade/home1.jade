@@ -1,0 +1,133 @@
+html(lang="eng")
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible")
+    meta(name="viewport" , content="width=device-width, initial-scale=1")
+    link(rel="icon" , href="../../favicon.ico")
+    title Welcome to Tab Tracker
+    
+    // Libraries and links
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')   
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js')   
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')     
+    script(src='https://use.fontawesome.com/47f1113041.js')
+    link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css')     
+    link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')     
+    link(href='https://fonts.googleapis.com/css?family=IM+Fell+Great+Primer', rel='stylesheet')
+    link(href='https://fonts.googleapis.com/css?family=Sorts+Mill+Goudy', rel='stylesheet')
+    
+    // CSS file
+    link(rel='stylesheet', type='text/css', href='style.css')
+    
+  body.root
+  //The Navigator
+  nav.navbar.navbar-inverse.navbar-fixed-top
+    .row
+      .navbar-header.col-xs-10
+        ul.nav.navbar-nav
+          li.disabled
+            a(href='#')
+          li.disabled
+            a(href='#')
+          li.active
+            a(href='#main') HOME
+          li.active
+            a(href='#about') ABOUT
+      .col-xs-2
+        .row
+          .col-xs-1
+          .col-xs-1
+            a.navbar-brand(href='#login') Login
+  
+  //Page cover          
+  #guitar-cover.container.container-fluid.w3-opacity.w3-hover-sepia
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    div(style='background-color: #FFCC80; width:20%')
+      h2#title Tab Tracker
+    div(style='background-color: #FFCC80; width:30%')
+      h4#desc Keep track of guitar tabs ! 
+    
+  //Song stand  
+  #song-stand.container(style='background-color:black;width:100%')
+    br
+    br
+    br
+    br
+    br
+    br
+    h2#featured-songs FEATURED SONGS
+    br
+    br
+    br
+    .container
+      #song.w3-animate-top
+        img.img-responsive.song-image-border(src='../Samples/celine.jpg', alt='song cover')
+        #song-desc
+          h3#song-info
+            span(style='font-size: 25px;') My heart will go on
+          h3#song-info
+            span(style='font-size: 18px;') Celine Dion
+        br
+        br
+        button.w3-btn.w3-gray.w3-wide.w3-hover-red.w3-round-large(style='margin-left: 90px;') Tabs
+      #song.w3-animate-top
+        img.img-responsive.song-image-border(src='../Samples/beatles.jpg', alt='song cover')
+        #song-desc
+          h3#song-info
+            span(style='font-size: 25px;') Yesterday
+          h3#song-info
+            span(style='font-size: 18px;') The Beatles
+        br
+        br
+        button.w3-btn.w3-gray.w3-wide.w3-hover-red.w3-round-large(style='margin-left: 90px;') Tabs
+      #song.w3-animate-top
+        img.img-responsive.song-image-border(src='../Samples/reliant.jpg', alt='song cover')
+        #song-desc
+          h3#song-info
+            span(style='font-size: 25px;') Getting into you
+          h3#song-info
+            span(style='font-size: 18px;') Reliant K
+        br
+        br
+        button.w3-btn.w3-gray.w3-wide.w3-hover-red.w3-round-large(style='margin-left: 90px;') Tabs
+      #song.w3-animate-top
+        img.img-responsive.song-image-border(src='../Samples/bright.jpg', alt='song cover')
+        #song-desc
+          h3#song-info
+            span(style='font-size: 25px;') Classic car
+          h3#song-info
+            span(style='font-size: 18px;') Bright Eyes
+        br
+        br
+        button.w3-btn.w3-gray.w3-wide.w3-hover-red.w3-round-large(style='margin-left: 90px;') Tabs
+    br
+    br
+    br
+    br
+    br
+    br
+  br
+  
+  //Footer
+  p#footer
+  | Created By 
+  a(href='https://github.com/Dania801') Dania
+  |  © 2017 with  
+  i.fa.fa-heart
+  |   and  
+  i.fa.fa-music
+
+  
+    
+
+    
+    
+    

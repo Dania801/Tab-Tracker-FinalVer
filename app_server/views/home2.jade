@@ -1,0 +1,147 @@
+html(lang="eng")
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible")
+    meta(name="viewport" , content="width=device-width, initial-scale=1")
+    link(rel="icon" , href="../../favicon.ico")
+    title #{title}
+    
+    // Libraries and links
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')   
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js')   
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')     
+    script(src='https://use.fontawesome.com/47f1113041.js')
+    link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css')     
+    link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')     
+    link(href='https://fonts.googleapis.com/css?family=IM+Fell+Great+Primer', rel='stylesheet')
+    link(href='https://fonts.googleapis.com/css?family=Sorts+Mill+Goudy', rel='stylesheet')
+    
+    // CSS file
+    link(rel='stylesheet', type='text/css', href='../stylesheets/style.css')
+    
+  body.root
+  //The Navigator
+  nav.navbar.navbar-inverse.navbar-fixed-top
+    .row
+      .navbar-header.col-xs-10
+        ul.nav.navbar-nav
+          li.disabled
+            a(href='#')
+          li.disabled
+            a(href='#')
+          li.active
+            a(href='/home/#{userid}') #{nav.home}
+          li.active
+            a(href='/user/#{userid}/about') #{nav.about}
+      .col-xs-2
+          a.navbar-brand(href='/') #{nav.logout}
+  br 
+  br 
+  div
+  br
+  .row
+    #mini-song-stand.col-xs-7
+      br
+      h2#all-songs ALL SONGS
+      br
+      #song-list.container
+          each song in songs
+            form(action="#{url}", method="post", role="form")
+              .form-group
+                input.form-control(type='hidden', name='userid', value="#{userid}")
+              .form-group
+                input.form-control(type='hidden', name='songid', value="#{song._id}")
+              .form-group
+                input.form-control(type='hidden', name='title', value="#{song.title}")
+              .form-group
+                input.form-control(type='hidden', name='artist', value="#{song.artist}")
+              .form-group
+                input.form-control(type='hidden', name='year', value="#{song.year}")
+              .form-group
+                input.form-control(type='hidden', name='genre', value="#{song.genre}")
+              .form-group
+                input.form-control(type='hidden', name='tab', value="#{song.tab}")
+              .form-group
+                input.form-control(type='hidden', name='lyrics', value="#{song.lyrics}")
+              .form-group
+                input.form-control(type='hidden', name='youtubeID', value="#{song.youtubeID}")
+              .form-group
+                input.form-control(type='hidden', name='cover', value="#{song.cover}")
+                
+              #song-mini.w3-animate-top
+                img.img-responsive.mini-song-image-border(src='#{song.cover}', alt='song cover')
+                #song-desc
+                  h3#title-font #{song.title}
+                  h3#artist-font #{song.artist}
+                br
+                button#song-small-margin.w3-btn.w3-black.w3-round-large(type='submit' ,value="bookmark", name="something")
+                  i.fa.fa-bookmark-o
+                button#song-small-margin.w3-btn.w3-black.w3-round-large(type='submit' ,value="recently", name="something")
+                  i.fa.fa-music
+                a#song-small-margin.w3-btn.w3-black.w3-round-large.btn.btn-default.pull-righ(href="/home/#{userid}/song/#{song._id}/edit")
+                  i.fa.fa-sliders
+                
+    .col-xs-4(style='background-color:#212121 ;margin-top:50px;')
+      .w3-white.w3-margin
+        img#option.w3-grayscale(src='../images/guitar3.jpg', alt='Jane')
+        #user.w3-container.w3-black
+          br
+          h4 Welcome #{username} !
+          br
+          p
+            | #{caption}
+          br
+          br
+          a#option.w3-button.w3-block.w3-gray.btn.btn-default.pull-righ(href="/add/#{userid}") Add New Song
+          br
+          a#option.w3-button.w3-block.w3-teal.btn.btn-default.pull-righ(href="#recently") Recently Viewed Songs
+          br
+          a#option.w3-button.w3-block.w3-red.btn.btn-default.pull-righ(href="#bookmark") Bookmarked Songs
+          br
+      .w3-white.w3-margin
+        .w3-container.w3-padding.w3-black
+          h4#recently Recently Viewed
+        ul.w3-ul.w3-hoverable.w3-white
+              each recently in recentlyViewed
+                li.w3-padding-16
+                  .row
+                    .col-xs-9
+                      img#bookmark-song-cover.w3-left.w3-margin-right(src='#{recently.cover}', alt='Image')
+                      span.w3-large #{recently.title}
+                      br
+                      span #{recently.artist}
+                    .col-xs-3
+                      .row
+                        .col-xs-2
+                          button#song-small-margin.w3-btn.w3-black.w3-round-large(type='submit' ,value="recently", name="something")
+                            i.fa.fa-music
+                        .col-xs-2
+                          button#song-small-margin.w3-btn.w3-black.w3-round-large.btn.btn-default.pull-righ(href="/home/#{userid}/song/#{recently._id}/edit")
+                            i.fa.fa-sliders
+      .w3-white.w3-margin
+        .w3-container.w3-padding.w3-black
+          h4#bookmark Bookmarked Songs
+        ul.w3-ul.w3-hoverable.w3-white
+              each bookmark in bookmarkedSongs
+                li.w3-padding-16
+                  .row
+                    .col-xs-9
+                      img#bookmark-song-cover.w3-left.w3-margin-right(src='#{bookmark.cover}', alt='Image')
+                      span.w3-large #{bookmark.title}
+                      br
+                      span #{bookmark.artist}
+                    .col-xs-3
+                      .row
+                        .col-xs-2
+                          button#song-small-margin.w3-btn.w3-black.w3-round-large(type='submit' ,value="recently", name="something")
+                            i.fa.fa-music
+                        .col-xs-2
+                          button#song-small-margin.w3-btn.w3-black.w3-round-large.btn.btn-default.pull-righ(href="/home/#{userid}/song/#{bookmark._id}/edit")
+                            i.fa.fa-sliders
+  footer.w3-container.w3-dark-grey(style='padding:32px')
+    a.w3-btn.w3-black.w3-margin-bottom(href='#')
+      i.fa.fa-arrow-up.w3-margin-right
+      | To the top
+
+  

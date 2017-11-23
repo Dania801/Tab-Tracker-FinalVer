@@ -1,0 +1,108 @@
+<html lang="eng">
+
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="icon" href="../../favicon.ico">
+      <title>Welcome to Tab Tracker</title>
+
+    <!--Libraries and links -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/47f1113041.js"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=IM+Fell+Great+Primer" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Sorts+Mill+Goudy" rel="stylesheet">
+
+    <!--CSS file -->
+    <link rel = "stylesheet" type = "text/css" href = "style.css" />
+  </head>
+
+  <body class="root">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="row">
+        <div class="navbar-header col-xs-10">
+          <ul class="nav navbar-nav">
+            <li class="disabled"><a href="#"></a></li>
+            <li class="disabled"><a href="#"></a></li>
+            <li class="active"><a href="#main">HOME</a></li>
+            <li class="active"><a href="#about">ABOUT</a></li>
+          </ul>
+        </div>
+        <div class="col-xs-2">
+          <div class="row">
+            <div class="col-xs-1"></div>
+            <div class="col-xs-1">
+              <a class="navbar-brand" href="#login">Login</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container container-fluid w3-opacity w3-hover-sepia" id="guitar-cover">
+      <br /><br /><br /><br />
+      <br /><br /><br /><br />
+
+      <div  style="background-color: #FFCC80; width:20%">
+        <h2 id="title">Tab Tracker</h2>
+      </div>
+      <div style="background-color: #FFCC80; width:30%">
+        <h4 id="desc">Keep track of guitar tabs !</h4>
+      </div>
+    </div>
+    <div class="container" id="song-stand" style="background-color:black;width:100%">
+      <br /><br /><br />
+      <br /><br /><br />
+      <h2 id="featured-songs" style="margin-left: 520px;">FEATURED SONGS</h2>
+      <br /><br /><br /><br><br>
+      <div class="container" >
+        <div id="song" class="w3-animate-top">
+          <img class="img-responsive song-image-border" src="../Samples/celine.jpg" alt="song cover">
+          <div id="song-desc">
+            <h3 id="song-info"> <span style="font-size: 25px;">My heart will go on</span></h3>
+            <h3 id="song-info"> <span style="font-size: 18px;">Celine Dion</span> </h3>
+          </div>
+          <br /><br />
+          <button class="w3-btn w3-gray w3-wide w3-hover-red w3-round-large" style="margin-left: 90px;">Tabs</button>
+        </div>
+        <div id="song" class="w3-animate-top">
+          <img class="img-responsive song-image-border" src="../Samples/beatles.jpg" alt="song cover">
+          <div id="song-desc">
+            <h3 id="song-info"> <span style="font-size: 25px;">Yesterday</span></h3>
+            <h3 id="song-info"> <span style="font-size: 18px;">The Beatles</span> </h3>
+          </div>
+          <br /><br />
+          <button class="w3-btn w3-gray w3-wide w3-hover-red w3-round-large" style="margin-left: 90px;">Tabs</button>
+        </div>
+        <div id="song" class="w3-animate-top">
+          <img class="img-responsive song-image-border" src="../Samples/reliant.jpg" alt="song cover">
+          <div id="song-desc">
+            <h3 id="song-info"> <span style="font-size: 25px;">Getting into you</span></h3>
+            <h3 id="song-info"> <span style="font-size: 18px;">Reliant K</span> </h3>
+          </div>
+          <br /><br />
+          <button class="w3-btn w3-gray w3-wide w3-hover-red w3-round-large" style="margin-left: 90px;">Tabs</button>
+        </div>
+        <div id="song" class="w3-animate-top">
+          <img class="img-responsive song-image-border" src="../Samples/bright.jpg" alt="song cover">
+          <div id="song-desc">
+            <h3 id="song-info"> <span style="font-size: 25px;">Classic car</span></h3>
+            <h3 id="song-info"> <span style="font-size: 18px;">Bright Eyes</span> </h3>
+          </div>
+          <br /><br />
+          <button class="w3-btn w3-gray w3-wide w3-hover-red w3-round-large" style="margin-left: 90px;">Tabs</button>
+        </div>
+      </div>
+      <br /><br />
+      <br /><br />
+      <br /><br />
+    </div>
+    <br />
+    <p id="footer">Created By <a href="https://github.com/Dania801">Dania</a> &copy; 2017 with &nbsp;<i class="fa fa-heart"></i>&nbsp; and &nbsp;<i class="fa fa-music"></i></p>
+  </body>
+</html>

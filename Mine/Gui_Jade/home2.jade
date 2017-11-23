@@ -1,0 +1,192 @@
+html(lang="eng")
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible")
+    meta(name="viewport" , content="width=device-width, initial-scale=1")
+    link(rel="icon" , href="../../favicon.ico")
+    title Welcome to Tab Tracker
+    
+    // Libraries and links
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')   
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js')   
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')     
+    script(src='https://use.fontawesome.com/47f1113041.js')
+    link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css')     
+    link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')     
+    link(href='https://fonts.googleapis.com/css?family=IM+Fell+Great+Primer', rel='stylesheet')
+    link(href='https://fonts.googleapis.com/css?family=Sorts+Mill+Goudy', rel='stylesheet')
+    
+    // CSS file
+    link(rel='stylesheet', type='text/css', href='style.css')
+    
+  body.root
+  //The Navigator
+  nav.navbar.navbar-inverse.navbar-fixed-top
+    .row
+      .navbar-header.col-xs-10
+        ul.nav.navbar-nav
+          li.disabled
+            a(href='#')
+          li.disabled
+            a(href='#')
+          li.active
+            a(href='#main') HOME
+          li.active
+            a(href='#about') ABOUT
+      .col-xs-2
+        .row
+          .col-xs-1
+          .col-xs-1
+            a.navbar-brand(href='#login') Log out
+  br 
+  br 
+  div
+  br
+  .row
+    #mini-song-stand.col-xs-7
+      br
+      h2#featured-songs ALL SONGS
+      br
+      #song-list.container
+        #song-mini.w3-animate-top
+          img.img-responsive.mini-song-image-border(src='../Samples/celine.jpg', alt='song cover')
+          #song-desc
+            h3#title-font My heart will go on
+            h3#artist-font Celine Dion
+          br
+          button#song-large-margin.w3-btn.w3-black.w3-round-large
+            i.fa.fa-music
+          button#song-small-margin.w3-btn.w3-black.w3-round-large
+            i.fa.fa-sliders
+          button#song-small-margin.w3-btn.w3-black.w3-round-large
+            i.fa.fa-bookmark-o
+        #song-mini.w3-animate-top
+          img.img-responsive.mini-song-image-border(src='../Samples/beatles.jpg', alt='song cover')
+          #song-desc
+            h3#title-font Yesterday
+            h3#artist-font The Beatles
+          br
+          button#song-large-margin.w3-btn.w3-black.w3-round-large
+            i.fa.fa-music
+          button#song-small-margin.w3-btn.w3-black.w3-round-large
+            i.fa.fa-sliders
+          button#song-small-margin.w3-btn.w3-black.w3-round-large
+            i.fa.fa-bookmark-o
+        #song-mini.w3-animate-top
+          img.img-responsive.mini-song-image-border(src='../Samples/reliant.jpg', alt='song cover')
+          #song-desc
+            h3#title-font Getting into you
+            h3#artist-font  Reliant K
+          br
+          button#song-large-margin.w3-btn.w3-black.w3-round-large
+            i.fa.fa-music
+          button#song-small-margin.w3-btn.w3-black.w3-round-large
+            i.fa.fa-sliders
+          button#song-small-margin.w3-btn.w3-black.w3-round-large
+            i.fa.fa-bookmark-o
+        #song-mini.w3-animate-top
+          img.img-responsive.mini-song-image-border(src='../Samples/bright.jpg', alt='song cover')
+          #song-desc
+            h3#title-font Classic car
+            h3#artist-font  Bright Eyes 
+          br
+          button#song-large-margin.w3-btn.w3-black.w3-round-large
+            i.fa.fa-music
+          button#song-small-margin.w3-btn.w3-black.w3-round-large
+            i.fa.fa-sliders
+          button#song-small-margin.w3-btn.w3-black.w3-round-large
+            i.fa.fa-bookmark-o
+      br
+      br
+    .col-xs-4(style='background-color:#212121 ;')
+      .w3-white.w3-margin
+        img#option.w3-grayscale(src='guitar3.jpg', alt='Jane')
+        #user.w3-container.w3-black
+          br
+          h4 Welcome Dania !
+          br
+          p
+            | Just me, myself and I, exploring the universe of uknownment. I have a heart of love and a interest of lorem ipsum and mauris neque quam blog. I want to share my world with you.
+          br
+          br
+          button#option.w3-button.w3-block.w3-gray Add New Song
+          br
+          button#option.w3-button.w3-block.w3-teal Recently Viewed Songs
+          br
+          button#option.w3-button.w3-block.w3-red Bookmarked Songs
+          br
+      .w3-white.w3-margin
+        .w3-container.w3-padding.w3-black
+          h4 Recently Viewed
+        ul.w3-ul.w3-hoverable.w3-white
+          li.w3-padding-16
+            .row
+              .col-xs-8
+                img#bookmark-song-cover.w3-left.w3-margin-right(src='../Samples/reliant.jpg', alt='Image')
+                span.w3-large Getting into you
+                br
+                span Reliant K
+              .col-xs-4
+                .row
+                  .col-xs-2
+                    button.w3-btn.w3-black.w3-margin-right
+                      i.fa.fa-music
+                  .col-xs-2
+                    button.w3-btn.w3-black.w3-margin-left
+                      i.fa.fa-sliders
+          li.w3-padding-16
+            .row
+              .col-xs-8
+                img#bookmark-song-cover.w3-left.w3-margin-right(src='../Samples/bright.jpg', alt='Image')
+                span.w3-large Classic car
+                br
+                span Bright Eyes
+              .col-xs-4
+                .row
+                  .col-xs-2
+                    button.w3-btn.w3-black.w3-margin-right
+                      i.fa.fa-music
+                  .col-xs-2
+                    button.w3-btn.w3-black.w3-margin-left
+                      i.fa.fa-sliders
+      .w3-white.w3-margin
+        .w3-container.w3-padding.w3-black
+          h4 Bookmarked Songs
+        ul.w3-ul.w3-hoverable.w3-white
+          li.w3-padding-16
+            .row
+              .col-xs-8
+                img#bookmark-song-cover.w3-left.w3-margin-right(src='../Samples/celine.jpg', alt='Image')
+                span.w3-large My heart will go on
+                br
+                span Celine Dion
+              .col-xs-4
+                .row
+                  .col-xs-2
+                    button.w3-btn.w3-black.w3-margin-right
+                      i.fa.fa-music
+                  .col-xs-2
+                    button.w3-btn.w3-black.w3-margin-left
+                      i.fa.fa-sliders
+          li.w3-padding-16
+            .row
+              .col-xs-8
+                img#bookmark-song-cover.w3-left.w3-margin-right(src='../Samples/beatles.jpg', alt='Image')
+                span.w3-large Yesterday
+                br
+                span The Beatles
+              .col-xs-4
+                .row
+                  .col-xs-2
+                    button.w3-btn.w3-black.w3-margin-right
+                      i.fa.fa-music
+                  .col-xs-2
+                    button.w3-btn.w3-black.w3-margin-left
+                      i.fa.fa-sliders
+  footer.w3-container.w3-dark-grey(style='padding:32px')
+    a.w3-btn.w3-black.w3-margin-bottom(href='#')
+      i.fa.fa-arrow-up.w3-margin-right
+      | To the top
+
+  
